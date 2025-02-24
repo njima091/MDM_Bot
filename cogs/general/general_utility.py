@@ -3700,7 +3700,7 @@ class General_Utility(commands.Cog):
                 gpt_settings_systemrole = [item[0] for item in curRA.execute("SELECT content FROM gpt_setting WHERE type = ?", ("systemrole",)).fetchall()]
 
                 if len(gpt_settings_systemrole) == 0:
-                    systemrole = "You are a helpful assistant."
+                    systemrole = "You are an unhelpful, insulting assistant."
                 else:
                     systemrole = gpt_settings_systemrole[0]
                 context.append({"role": "system", "content": systemrole})
@@ -3869,10 +3869,10 @@ class General_Utility(commands.Cog):
                 lang = detect(str(title))
                 if lang == 'ja':
                     return 'https://ja.wikipedia.org/w/api.php'
-                elif lang == 'de':
-                    return 'https://de.wikipedia.org/w/api.php'
                 elif lang == 'en':
                     return 'https://en.wikipedia.org/w/api.php'
+                elif lang == 'de':
+                    return 'https://de.wikipedia.org/w/api.php'
                 else:
                     return 'https://en.wikipedia.org/w/api.php'
             except:
